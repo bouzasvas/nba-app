@@ -2,6 +2,9 @@ import {Scoreboard} from './scoreboard';
 import {Team} from '../Team/team';
 import {IdTeamEnum} from '../Team/id-team-enum.enum';
 
+// Lodash
+import * as _ from 'lodash';
+
 export class ScoreboardMapper {
 
   static mapToModel(ob: any): Array<Scoreboard> {
@@ -12,8 +15,8 @@ export class ScoreboardMapper {
     transformedScoreboardArray.forEach(gameScoreboardNative => {
       const scoreboard = {} as Scoreboard;
 
-      const homeTeam: Team = { id: gameScoreboardNative[6], name: IdTeamEnum['id' + gameScoreboardNative[6]] };
-      const awayTeam: Team = { id: gameScoreboardNative[7], name: IdTeamEnum['id' + gameScoreboardNative[7]] };
+      const homeTeam: Team = {id: gameScoreboardNative[6], name: IdTeamEnum['id' + gameScoreboardNative[6]]};
+      const awayTeam: Team = {id: gameScoreboardNative[7], name: IdTeamEnum['id' + gameScoreboardNative[7]]};
 
       scoreboard.GameSeq = gameScoreboardNative[1];
       scoreboard.GameId = gameScoreboardNative[2];
@@ -29,7 +32,9 @@ export class ScoreboardMapper {
   }
 
   private static getRightObjectArray(ob: any): Array<any> {
-    const filteredResultSet = ob.filter(o => o.name === 'Game Header');
+    const filteredResultSet = ob.resultSets
+      .filter(o => o.name === 'GameHeader')
+      .reduce(results => _.first(results));
 
     return filteredResultSet.rowSet;
   }

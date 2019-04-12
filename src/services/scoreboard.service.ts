@@ -14,12 +14,13 @@ export class ScoreboardService {
 
   private httpOptions = {
     headers: new HttpHeaders({
-      // 'Access-Control-Allow-Origin': '*',
-      'Content-Type': 'text/plain'
+      // 'Access-Control-Allow-Origin': 'http://localhost:4200',
+      // 'Access-Control-Allow-Credentials': 'true'
+      // 'Content-Type': 'text/plain'
       // 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
       // 'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token'
     }),
-    withCredentials: false
+    // withCredentials: false
   };
 
   // GameDate has date format MM/DD/YYYY
