@@ -15,6 +15,6 @@ export class AppComponent implements OnInit {
   constructor(private scoreboardService: ScoreboardService) {}
 
   ngOnInit(): void {
-    this.scoreboardService.getScoreboardData('').subscribe(data => this.scoreboard = data);
+    // this.scoreboardService.getScoreboardData('').subscribe(data => this.scoreboard = data);
   }
 }
