@@ -1,0 +1,14 @@
+footer {
+  color: white;
+  background-color: #0054a4;
+
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 12%;
+  width: 100%;
+}
+
+footer > div.container > div.row {
+  margin: 20px 0;
+}
