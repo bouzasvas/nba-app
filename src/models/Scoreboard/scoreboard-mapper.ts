@@ -15,8 +15,8 @@ export class ScoreboardMapper {
     transformedScoreboardArray.forEach(gameScoreboardNative => {
       const scoreboard = {} as Scoreboard;
 
-      const homeTeam: Team = {id: gameScoreboardNative[6], name: IdTeamEnum['id' + gameScoreboardNative[6]]};
-      const awayTeam: Team = {id: gameScoreboardNative[7], name: IdTeamEnum['id' + gameScoreboardNative[7]]};
+      const homeTeam: Team = {id: gameScoreboardNative[6], teamName: '', teamCity: '', fullName: IdTeamEnum['id' + gameScoreboardNative[6]]};
+      const awayTeam: Team = {id: gameScoreboardNative[7], teamName: '', teamCity: '', fullName: IdTeamEnum['id' + gameScoreboardNative[7]]};
 
       scoreboard.GameSeq = gameScoreboardNative[1];
       scoreboard.GameId = gameScoreboardNative[2];
@@ -33,7 +33,7 @@ export class ScoreboardMapper {
 
   private static getRightObjectArray(ob: any): Array<any> {
     const filteredResultSet = ob.resultSets
-      .filter(o => o.name === 'GameHeader')
+      .filter(o => o.fullName === 'GameHeader')
       .reduce(results => _.first(results));
 
     return filteredResultSet.rowSet;

@@ -1,4 +1,8 @@
 export interface Team {
   id: number;
-  name: string;
+  fullName: string;
+
+  // Used for Logo finding
+  teamName: string;
+  teamCity: string;
 }
