@@ -8,6 +8,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import {AppRoutingModule} from './app-routing.module';
 import { GamesComponent } from './components/games/games.component';
 import { StandingsComponent } from './components/standings/standings.component';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { StandingsComponent } from './components/standings/standings.component';
     HeaderComponent,
     FooterComponent,
     GamesComponent,
-    StandingsComponent
+    StandingsComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,

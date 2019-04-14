@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ScoreboardService} from '../../services/scoreboard.service';
 import {Scoreboard} from '../../models/Scoreboard/scoreboard';
+import {LoaderService} from '../../services/loader.service';
 
 @Component({
   selector: 'app-root',
@@ -8,13 +9,7 @@ import {Scoreboard} from '../../models/Scoreboard/scoreboard';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'nba-app';
+  constructor(private loader: LoaderService) {}
 
-  scoreboard: Array<Scoreboard> = [];
-
-  constructor(private scoreboardService: ScoreboardService) {}
-
-  ngOnInit(): void {
-    // this.scoreboardService.getScoreboardData('').subscribe(data => this.scoreboard = data);
-  }
+  ngOnInit(): void {}
 }

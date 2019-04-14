@@ -21,6 +21,7 @@ export class StandingsService {
     return this.http
       .get<Array<StandingsPerTeam>>(endpoint)
       .pipe(
+        // TODO: Handle Error
         map(response => StandingsMapper.mapResponseToStandingsArray(response))
       );
   }

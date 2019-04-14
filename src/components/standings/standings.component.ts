@@ -1,6 +1,7 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import { StandingsPerTeam } from '../../models/Standings/standings';
 import {StandingsService} from '../../services/standings.service';
+import {LoaderService} from '../../services/loader.service';
 
 @Component({
   selector: 'app-standings',
@@ -17,14 +18,18 @@ export class StandingsComponent implements OnInit {
   eastConferenceStandings: Array<StandingsPerTeam>;
   westConferenceStandings: Array<StandingsPerTeam>;
 
-  constructor(private standingsService: StandingsService) {}
+  constructor(private standingsService: StandingsService, private loader: LoaderService) {}
 
   ngOnInit() {
+    this.loader.toggleLoader();
+
     this.standingsService.getTodayStandings()
       .subscribe(standings => {
         this.standingsAll = standings;
         this.eastConferenceStandings = this.filterStandingsResults('East');
         this.westConferenceStandings = this.filterStandingsResults('West');
+
+        this.loader.toggleLoader();
       });
   }
 
