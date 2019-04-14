@@ -1,7 +1,85 @@
 <section>
 
   <div class="container">
-    
+
+    <!-- Select Conference dropdown -->
+    <div class="row">
+      <div>
+        <div class="dropdown dropright">
+          <button #confSelectDrop class="btn btn-primary btn-lg dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            All
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <h6 class="dropdown-header">Select Conference</h6>
+            <div class="dropdown-divider"></div>
+            <button class="dropdown-item" [class.active]="confSelectDrop.innerHTML === ' All '" (click)="onConferenceSelect($event)">All</button>
+            <button class="dropdown-item" [class.active]="confSelectDrop.innerHTML === ' East '" (click)="onConferenceSelect($event)">East</button>
+            <button class="dropdown-item" [class.active]="confSelectDrop.innerHTML === ' West '" (click)="onConferenceSelect($event)">West</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Eastern Conference Standings Table -->
+    <div class="table-responsive" *ngIf="eastConferenceStandings && eastConferenceStandings.length !== 0">
+      <hr>
+      <h2 class="conference-name">Eastern Conference</h2>
+      <table class="table table-hover">
+        <thead class="thead-dark">
+        <tr>
+          <th scope="col">Rank</th>
+          <th scope="col">Team</th>
+          <th scope="col">Record</th>
+          <th scope="col">Home Record</th>
+          <th scope="col">Road Record</th>
+          <th scope="col">Win PCT</th>
+          <th scope="col">Last 10</th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let teamStd of eastConferenceStandings; index as i">
+            <th scope="row">{{i+1}}</th>
+            <td><img class="team-logo" src="../../assets/nba-teams-logo/{{teamStd.team.teamName}}.gif">{{teamStd.team.fullName}}</td>
+            <td>{{teamStd.record}}</td>
+            <td>{{teamStd.homeRecord}}</td>
+            <td>{{teamStd.roadRecord}}</td>
+            <td>{{teamStd.winPct}}</td>
+            <td>{{teamStd.last10}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Western Conference Standings Table -->
+    <div class="table-responsive" *ngIf="westConferenceStandings && westConferenceStandings.length !== 0">
+      <hr>
+      <h2 class="conference-name">Western Conference</h2>
+      <table class="table table-hover">
+        <thead class="thead-dark">
+        <tr>
+          <th scope="col">Rank</th>
+          <th scope="col">Team</th>
+          <th scope="col">Record</th>
+          <th scope="col">Home Record</th>
+          <th scope="col">Road Record</th>
+          <th scope="col">Win PCT</th>
+          <th scope="col">Last 10</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let teamStd of westConferenceStandings; index as i">
+          <th scope="row">{{i+1}}</th>
+          <td><img class="team-logo" src="../../assets/nba-teams-logo/{{teamStd.team.teamName}}.gif">{{teamStd.team.fullName}}</td>
+          <td>{{teamStd.record}}</td>
+          <td>{{teamStd.homeRecord}}</td>
+          <td>{{teamStd.roadRecord}}</td>
+          <td>{{teamStd.winPct}}</td>
+          <td>{{teamStd.last10}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
   </div>
 
 </section>
