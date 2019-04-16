@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {AppConstants} from '../app-constants';
+import {AppConstants} from '../common/app-constants';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {StandingsPerTeam} from '../models/Standings/standings';

@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {Scoreboard} from '../models/Scoreboard/scoreboard';
-import {AppConstants} from '../app-constants';
+import {AppConstants} from '../common/app-constants';
 
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {ScoreboardMapper} from '../models/Scoreboard/scoreboard-mapper';
