@@ -7,6 +7,6 @@ export class AppErrorHandlerService implements ErrorHandler {
 
   handleError(error: any): void {
     // TODO: Implemennt Error Handler
-    console.log('test');
+    console.error(error);
   }
 }

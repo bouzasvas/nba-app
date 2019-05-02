@@ -33,7 +33,8 @@ import {AppErrorHandlerService} from './common/app-error-handler.service';
       provide: ErrorHandler,
       useClass: AppErrorHandlerService
     },
-    {provide: HTTP_INTERCEPTORS,
+    {
+      provide: HTTP_INTERCEPTORS,
       useClass: AppHttpInterceptor,
       multi: true,
       deps: [ LoggerService, LoaderService ]
