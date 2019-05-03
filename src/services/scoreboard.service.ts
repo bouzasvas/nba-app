@@ -3,40 +3,31 @@ import {Observable} from 'rxjs';
 import {Scoreboard} from '../models/Scoreboard/scoreboard';
 import {AppConstants} from '../common/app-constants';
 
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {ScoreboardMapper} from '../models/Scoreboard/scoreboard-mapper';
-import {map} from 'rxjs/operators';
+import {map, tap} from 'rxjs/operators';
+import {LoggerService} from './logger.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ScoreboardService {
 
-  private httpOptions = {
-    headers: new HttpHeaders({
-      // 'Access-Control-Allow-Origin': 'http://localhost:4200',
-      // 'Access-Control-Allow-Credentials': 'true'
-      // 'Content-Type': 'text/plain'
-      // 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-      // 'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token'
-    }),
-    // withCredentials: false
-  };
+  private gameDate: string;
+  private scoreboardApiUrl: string;
 
-  // GameDate has date format MM/DD/YYYY
-  // private gameDate: string;
+  constructor(private logger: LoggerService, private http: HttpClient) {
+  }
 
-  // For Testing!!
-  private gameDate = '02/14/2018';
-
-  private scoreboardApiUrl = AppConstants.baseNbaApiUrl + `scoreboard?GameDate=${this.gameDate}&LeagueID=00&DayOffset=0`;
-
-  constructor(private http: HttpClient) {
+  private updateEndpointUrl(gameDate: string) {
+    this.scoreboardApiUrl = `${AppConstants.baseNbaApiUrl}/scoreboardV2?GameDate=${gameDate}&LeagueID=00&DayOffset=0`;
   }
 
   getScoreboardData(gameDate): Observable<Array<Scoreboard>> {
-    return this.http.get<Array<Scoreboard>>(this.scoreboardApiUrl, this.httpOptions)
+    this.updateEndpointUrl(gameDate);
+    return this.http.get<Array<Scoreboard>>(this.scoreboardApiUrl)
       .pipe(
+        tap(_ => this.logger.log('Retrieve Scoreboard Data successfully!')),
         map(scoreboardArray => ScoreboardMapper.mapToModel(scoreboardArray))
       );
   }
