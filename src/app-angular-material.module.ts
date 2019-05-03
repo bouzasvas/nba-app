@@ -35,7 +35,7 @@ export const MY_FORMATS = {
     MatInputModule
   ],
   providers: [
-    {provide: MAT_DATE_LOCALE, useValue: 'el-GR'},
+    {provide: MAT_DATE_LOCALE, useValue: 'en-USA'},
     {provide: MAT_DATE_FORMATS, useValue: MY_FORMATS}
   ]
 })
