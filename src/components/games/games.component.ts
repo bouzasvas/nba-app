@@ -62,15 +62,17 @@ export class GamesComponent implements OnInit {
     this.gameCalendar.select(dateInCalendarMomentOb);
   }
 
-  getScoreboardData(momentDate: Moment) {
+  showBoxscoreDetails(game: Scoreboard) {
+    console.log(game);
+  }
+
+  private getScoreboardData(momentDate: Moment) {
     const date = momentDate.format('MM/DD/YYYY');
 
     this.loader.toggleLoader();
     this.scoreboardService.getScoreboardData(date).subscribe(scoreboardArray => {
       this.scoreboard = scoreboardArray;
       this.loader.toggleLoader();
-
-      console.log(this.scoreboard);
     });
   }
 

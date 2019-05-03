@@ -9,3 +9,23 @@ mat-form-field {
 mat-form-field input {
   font-style: italic;
 }
+
+#games-data ul > li {
+  cursor: pointer;
+}
+
+#games-data ul > li:hover {
+  background-color: #f0ffff5e;
+}
+
+#games-data .team {
+  font-family: 'Indie Flower', cursive;
+  font-size: 24pt;
+  margin-top: 2%;
+}
+
+#games-data .versus > span {
+  font-family: 'Indie Flower', cursive;
+  font-size: 30pt;
+  font-weight: 600;
+}
