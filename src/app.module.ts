@@ -1,8 +1,11 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {ErrorHandler, NgModule} from '@angular/core';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import {AppComponent} from './components/app/app.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
+
 import {HeaderComponent} from './components/header/header.component';
 import {FooterComponent} from './components/footer/footer.component';
 import {AppRoutingModule} from './app-routing.module';
@@ -13,6 +16,8 @@ import {AppHttpInterceptor} from './common/http-interceptor';
 import {LoggerService} from './services/logger.service';
 import {LoaderService} from './services/loader.service';
 import {AppErrorHandlerService} from './common/app-error-handler.service';
+
+import {AppAngularMaterialModule} from './app-angular-material.module';
 
 @NgModule({
   declarations: [
@@ -25,8 +30,12 @@ import {AppErrorHandlerService} from './common/app-error-handler.service';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
-    AppRoutingModule
+    FormsModule,
+    AppRoutingModule,
+
+    AppAngularMaterialModule
   ],
   providers: [
     {
@@ -37,7 +46,7 @@ import {AppErrorHandlerService} from './common/app-error-handler.service';
       provide: HTTP_INTERCEPTORS,
       useClass: AppHttpInterceptor,
       multi: true,
-      deps: [ LoggerService, LoaderService ]
+      deps: [LoggerService, LoaderService]
     }
   ],
   bootstrap: [AppComponent]
