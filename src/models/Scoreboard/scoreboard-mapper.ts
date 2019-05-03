@@ -52,17 +52,21 @@ export class ScoreboardMapper {
 
     const homeTeam: Team = {
       id: homeTeamLinescoreOb[3],
-      teamName: homeTeamLinescoreOb[5],
-      teamCity: homeTeamLinescoreOb[6],
-      fullName: `${homeTeamLinescoreOb[5]} ${homeTeamLinescoreOb[6]}`
-    };
+      teamName: homeTeamLinescoreOb[6],
+      teamCity: homeTeamLinescoreOb[5],
+      fullName: `${homeTeamLinescoreOb[5]} ${homeTeamLinescoreOb[6]}`,
+      teamLogoPath: `assets/nba-teams-logo/${homeTeamLinescoreOb[6]}.gif`,
+      pointsScored: homeTeamLinescoreOb[22]
+  };
 
     const awayTeam: Team = {
       id: awayTeamLinescoreOb[3],
-      teamName: awayTeamLinescoreOb[5],
-      teamCity: awayTeamLinescoreOb[6],
-      fullName: `${awayTeamLinescoreOb[5]} ${awayTeamLinescoreOb[6]}`
-    };
+      teamName: awayTeamLinescoreOb[6],
+      teamCity: awayTeamLinescoreOb[5],
+      fullName: `${awayTeamLinescoreOb[5]} ${awayTeamLinescoreOb[6]}`,
+      teamLogoPath: `assets/nba-teams-logo/${awayTeamLinescoreOb[6]}.gif`,
+      pointsScored: awayTeamLinescoreOb[22]
+  };
 
     return [homeTeam, awayTeam];
   }
