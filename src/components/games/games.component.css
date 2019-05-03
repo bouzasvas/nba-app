@@ -1,3 +1,11 @@
-#games-filter {
-  height: 400px;
+#game-date {
+  font-size: 18pt;
+}
+
+mat-form-field {
+  margin-top: 3%;
+}
+
+mat-form-field input {
+  font-style: italic;
 }
