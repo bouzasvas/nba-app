@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, HostListener, OnInit, ViewChild} from '@angular/core';
 import {MatDatepicker} from '@angular/material';
 
 import {LoaderService} from '../../services/loader.service';
@@ -24,7 +24,8 @@ export class GamesComponent implements OnInit {
 
   scoreboard: Array<Scoreboard>;
 
-  constructor(private loader: LoaderService, private scoreboardService: ScoreboardService) { }
+  constructor(private loader: LoaderService, private scoreboardService: ScoreboardService) {
+  }
 
   ngOnInit() {
     // Enable tooltips
@@ -62,10 +63,6 @@ export class GamesComponent implements OnInit {
     this.gameCalendar.select(dateInCalendarMomentOb);
   }
 
-  showBoxscoreDetails(game: Scoreboard) {
-    console.log(game);
-  }
-
   private getScoreboardData(momentDate: Moment) {
     const date = momentDate.format('MM/DD/YYYY');
 
@@ -76,4 +73,15 @@ export class GamesComponent implements OnInit {
     });
   }
 
+
+  @HostListener('window:keyup', ['$event'])
+  private keyEvent(e: KeyboardEvent) {
+    e.preventDefault();
+
+    if (e.code === 'ArrowLeft') {
+      this.changeDate(-1);
+    } else if (e.code === 'ArrowRight') {
+      this.changeDate(1);
+    }
+  }
 }
