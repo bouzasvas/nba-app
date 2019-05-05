@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 
 import {
   MatDatepickerModule,
-  MatInputModule, MAT_DATE_LOCALE, MAT_DATE_FORMATS
+  MatInputModule, MAT_DATE_LOCALE, MAT_DATE_FORMATS, MatTabsModule
 } from '@angular/material';
 
 import {MatMomentDateModule} from '@angular/material-moment-adapter';
@@ -26,13 +26,15 @@ export const MY_FORMATS = {
     MomentDateModule,
     MatMomentDateModule,
     MatDatepickerModule,
-    MatInputModule
+    MatInputModule,
+    MatTabsModule
   ],
   exports: [
     MomentDateModule,
     MatMomentDateModule,
     MatDatepickerModule,
-    MatInputModule
+    MatInputModule,
+    MatTabsModule
   ],
   providers: [
     {provide: MAT_DATE_LOCALE, useValue: 'en-USA'},
