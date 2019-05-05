@@ -2,7 +2,6 @@
   "/stats": {
     "target": "https://stats.nba.com",
     "secure": true,
-    "logLevel": "debug",
     "changeOrigin": true,
     "headers": {
       "Connection": "keep-alive"
