@@ -10,6 +10,7 @@ import {HeaderComponent} from './components/header/header.component';
 import {FooterComponent} from './components/footer/footer.component';
 import {AppRoutingModule} from './app-routing.module';
 import {GamesComponent} from './components/games/games.component';
+import { GameDetailsComponent } from './components/game-details/game-details.component';
 import {StandingsComponent} from './components/standings/standings.component';
 import {LoaderComponent} from './components/loader/loader.component';
 import {AppHttpInterceptor} from './common/http-interceptor';
@@ -18,6 +19,7 @@ import {LoaderService} from './services/loader.service';
 import {AppErrorHandlerService} from './common/app-error-handler.service';
 
 import {AppAngularMaterialModule} from './app-angular-material.module';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import {AppAngularMaterialModule} from './app-angular-material.module';
     FooterComponent,
     GamesComponent,
     StandingsComponent,
-    LoaderComponent
+    LoaderComponent,
+    GameDetailsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
