@@ -1,7 +1,9 @@
 import {PointsPerQuarter} from './points-per-quarter';
 import {OtherTeamStats} from './other-team-stats';
+import {Team} from '../Team/team';
 
 export interface TeamStats {
+  team: Team;
   pointsPerQuarter: PointsPerQuarter;
   otherTeamStats: OtherTeamStats;
 
