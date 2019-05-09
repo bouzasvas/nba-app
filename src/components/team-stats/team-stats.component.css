@@ -1,0 +1,17 @@
+section {
+  margin-top: 3% !important;
+}
+
+div.points-per-qtr-team-info {
+  text-align: right;
+  position: relative;
+  top: 20px;
+}
+
+table.points-per-qtr th {
+  text-align: center;
+}
+
+table.points-per-qtr td {
+  text-align: center;
+}

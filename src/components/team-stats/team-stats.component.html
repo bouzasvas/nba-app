@@ -1,3 +1,60 @@
-<p>
-  team-stats works!
-</p>
+<section>
+
+  <div class="container">
+
+    <h6 class="text-muted">Team PTS per Quarter</h6>
+    <div class="row align-items-center justify-content-center">
+      <div class="col-4">
+        <div class="points-per-qtr-team-info">
+            <p>{{gameStats.homeTeamStats.team.fullName}}</p>
+            <p>{{gameStats.awayTeamStats.team.fullName}}</p>
+        </div>
+      </div>
+      <div class="col-auto">
+
+        <div class="table-responsive">
+          <table class="table table-bordered points-per-qtr">
+            <thead>
+            <tr>
+              <th scope="col">Q1</th>
+              <th scope="col">Q2</th>
+              <th scope="col">Q3</th>
+              <th scope="col">Q4</th>
+              <th scope="col"
+                  *ngFor="let ot of gameStats.homeTeamStats.pointsPerQuarter.otQtrArray; let otNo = index">{{'OT' + (otNo + 1)}}</th>
+              <th scope="col">Total</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr>
+              <td scope="row">{{gameStats.homeTeamStats.pointsPerQuarter.qtr1}}</td>
+              <td>{{gameStats.homeTeamStats.pointsPerQuarter.qtr2}}</td>
+              <td>{{gameStats.homeTeamStats.pointsPerQuarter.qtr3}}</td>
+              <td>{{gameStats.homeTeamStats.pointsPerQuarter.qtr4}}</td>
+              <td *ngFor="let ot of gameStats.homeTeamStats.pointsPerQuarter.otQtrArray">{{ot}}</td>
+              <td>{{gameStats.homeTeamStats.pointsPerQuarter.total}}</td>
+            </tr>
+
+
+            <tr>
+              <td scope="row">{{gameStats.awayTeamStats.pointsPerQuarter.qtr1}}</td>
+              <td>{{gameStats.awayTeamStats.pointsPerQuarter.qtr2}}</td>
+              <td>{{gameStats.awayTeamStats.pointsPerQuarter.qtr3}}</td>
+              <td>{{gameStats.awayTeamStats.pointsPerQuarter.qtr4}}</td>
+              <td *ngFor="let ot of gameStats.awayTeamStats.pointsPerQuarter.otQtrArray">{{ot}}</td>
+              <td>{{gameStats.awayTeamStats.pointsPerQuarter.total}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+
+    </div>
+
+    <h6 class="text-muted">Team Comparison</h6>
+
+  </div>
+
+</section>
