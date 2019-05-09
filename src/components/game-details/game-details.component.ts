@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {GameStatsService} from '../../services/game-stats.service';
+import {GameStats} from '../../models/TeamStats/game-stats';
+import {LoaderService} from '../../services/loader.service';
 
 @Component({
   selector: 'app-game-details',
@@ -7,9 +11,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GameDetailsComponent implements OnInit {
 
-  constructor() { }
+  gameId: string;
+  gameStats: GameStats;
+
+  constructor(private route: ActivatedRoute,
+              private gameStatsService: GameStatsService,
+              private loader: LoaderService) { }
 
   ngOnInit() {
+    this.gameId = this.route.snapshot.paramMap.get('id');
+    this.getGameStats();
+  }
+
+  getGameStats() {
+    this.loader.toggleLoader();
+
+    this.gameStatsService.getGameStats(this.gameId)
+      .subscribe(stats => {
+        this.gameStats = stats;
+
+        this.loader.toggleLoader();
+      });
   }
 
 }
