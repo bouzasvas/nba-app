@@ -20,6 +20,8 @@ import {AppErrorHandlerService} from './common/app-error-handler.service';
 
 import {AppAngularMaterialModule} from './app-angular-material.module';
 import { HomeComponent } from './components/home/home.component';
+import { TeamStatsComponent } from './components/team-stats/team-stats.component';
+import { BoxscoreComponent } from './components/boxscore/boxscore.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { HomeComponent } from './components/home/home.component';
     StandingsComponent,
     LoaderComponent,
     GameDetailsComponent,
-    HomeComponent
+    HomeComponent,
+    TeamStatsComponent,
+    BoxscoreComponent
   ],
   imports: [
     BrowserModule,
