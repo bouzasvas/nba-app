@@ -4,13 +4,14 @@ import {OtherTeamStats} from './other-team-stats';
 
 import * as _ from 'lodash';
 import {GameStats} from './game-stats';
+import {CommonMapperFns} from '../../common/common-mapper-fns';
 
 export class GameStatsMapper {
 
   public static convertResponsesToTeamStatsObject(boxscoreSummaryResponse: any, boxscoreTraditionalResponse: any): GameStats {
     const gameStats = {} as GameStats;
 
-    const gameSummaryResponseObject = this.getRightObjectArray(boxscoreSummaryResponse, 'GameSummary', false)[0];
+    const gameSummaryResponseObject = CommonMapperFns.getRightObjectArray(boxscoreSummaryResponse, 'GameSummary', false)[0];
     const homeTeamId = gameSummaryResponseObject[6];
     const awayTeamId = gameSummaryResponseObject[7];
 
@@ -21,8 +22,8 @@ export class GameStatsMapper {
   }
 
   private static convertBoxscoreSummaryResponseToModelByTeamId(teamId: number, boxscoreSumOb: any): [PointsPerQuarter, OtherTeamStats] {
-    const ptsPerQtrResponse = this.getRightObjectArray(boxscoreSumOb, 'LineScore', true, [{index: 3, value: teamId}])[0];
-    const otherStatsResponse = this.getRightObjectArray(boxscoreSumOb, 'OtherStats', true, [{index: 1, value: teamId}])[0];
+    const ptsPerQtrResponse = CommonMapperFns.getRightObjectArray(boxscoreSumOb, 'LineScore', true, [{index: 3, value: teamId}])[0];
+    const otherStatsResponse = CommonMapperFns.getRightObjectArray(boxscoreSumOb, 'OtherStats', true, [{index: 1, value: teamId}])[0];
 
     const ptsPerQtr: PointsPerQuarter = this.constructPtsPerQtrObject(ptsPerQtrResponse);
     const otherStats: OtherTeamStats = this.constructOtherStatsObject(otherStatsResponse);
@@ -33,11 +34,14 @@ export class GameStatsMapper {
   private static constructTeamStatsObject(teamId: number, boxscoresummaryResponse: any, boxscoreTraditionalResponse: any) {
     const teamStats = {} as TeamStats;
 
+    const team = CommonMapperFns.getTeamById(boxscoresummaryResponse, teamId);
+    teamStats.team = team;
+
     const ptsPerQtrOtherStatsArray = this.convertBoxscoreSummaryResponseToModelByTeamId(teamId, boxscoresummaryResponse);
     teamStats.pointsPerQuarter = ptsPerQtrOtherStatsArray[0];
     teamStats.otherTeamStats = ptsPerQtrOtherStatsArray[1];
 
-    const teamStatsResponseObject = this.getRightObjectArray(boxscoreTraditionalResponse, 'TeamStats', true, [{index: 1, value: teamId}])[0];
+    const teamStatsResponseObject = CommonMapperFns.getRightObjectArray(boxscoreTraditionalResponse, 'TeamStats', true, [{index: 1, value: teamId}])[0];
     teamStats.minutes = teamStatsResponseObject[5];
     teamStats.fgMade = teamStatsResponseObject[6];
     teamStats.fgAttempted = teamStatsResponseObject[7];
@@ -87,26 +91,5 @@ export class GameStatsMapper {
     otherStats.fastbreakPoints = response[6];
 
     return otherStats;
-  }
-
-  private static getRightObjectArray(ob: any, filterTerm: string, extraFilters: boolean, filters?: Array<any>): Array<any> {
-    const filteredResultSet = ob.resultSets
-      .filter(o => o.name === filterTerm)
-      .reduce(results => _.first(results));
-
-    let rowset = filteredResultSet.rowSet;
-
-    // Perform extra filtering if needed
-    if (extraFilters) {
-      const filteredRowset = [];
-
-      filters.forEach((filterOb) => {
-        filteredRowset.push(rowset.filter(row => row[filterOb.index] === filterOb.value));
-      });
-
-      rowset = _.first(filteredRowset);
-    }
-
-    return rowset;
   }
 }

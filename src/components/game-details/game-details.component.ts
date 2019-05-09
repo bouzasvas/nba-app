@@ -30,6 +30,8 @@ export class GameDetailsComponent implements OnInit {
       .subscribe(stats => {
         this.gameStats = stats;
 
+        console.log(this.gameStats);
+
         this.loader.toggleLoader();
       });
   }
