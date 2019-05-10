@@ -5,7 +5,12 @@ section {
 div.points-per-qtr-team-info {
   text-align: right;
   position: relative;
-  top: 20px;
+  top: 25px;
+}
+
+div.points-per-qtr-team-info > p > img {
+  width: 65px;
+  height: 40px;
 }
 
 table.points-per-qtr th {
