@@ -22,6 +22,7 @@ import {AppAngularMaterialModule} from './app-angular-material.module';
 import { HomeComponent } from './components/home/home.component';
 import { TeamStatsComponent } from './components/team-stats/team-stats.component';
 import { BoxscoreComponent } from './components/boxscore/boxscore.component';
+import { InfoDialogComponent } from './components/info-dialog/info-dialog.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { BoxscoreComponent } from './components/boxscore/boxscore.component';
     GameDetailsComponent,
     HomeComponent,
     TeamStatsComponent,
-    BoxscoreComponent
+    BoxscoreComponent,
+    InfoDialogComponent
   ],
   imports: [
     BrowserModule,

@@ -6,14 +6,25 @@
 
       <!-- Tabs for different game details categories -->
       <div class="col">
-        <mat-tab-group mat-stretch-tabs class="mat-elevation-z4">
+        <mat-tab-group *ngIf="gameStats" mat-stretch-tabs class="mat-elevation-z4">
           <mat-tab label="Team Stats">
-            <app-team-stats *ngIf="gameStats" [gameStats]="gameStats"></app-team-stats>
+            <app-team-stats [gameStats]="gameStats"></app-team-stats>
+
+
           </mat-tab>
           <mat-tab label="Boxscore">
             <app-boxscore></app-boxscore>
           </mat-tab>
         </mat-tab-group>
+
+        <!-- In case that something goes wrong -->
+        <app-info-dialog
+          *ngIf="!gameStats && !loader.isOn()"
+          cssClass="alert-warning"
+          heading="No Game Information available"
+          title="Could not load stats for the selected Game!"
+          message="Please check that the selected Game has been completed & try again!">
+        </app-info-dialog>
       </div>
 
     </div>

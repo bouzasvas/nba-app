@@ -16,7 +16,7 @@ export class GameDetailsComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private gameStatsService: GameStatsService,
-              private loader: LoaderService) { }
+              public loader: LoaderService) { }
 
   ngOnInit() {
     this.gameId = this.route.snapshot.paramMap.get('id');

@@ -62,12 +62,13 @@
           </li>
         </ul>
 
-        <div *ngIf="scoreboard && scoreboard.length === 0" class="alert alert-secondary" role="alert">
-          <h4 class="alert-heading">No Games found!</h4>
-          <p>No NBA Games are scheduled for the selected Date.</p>
-          <hr>
-          <p class="mb-0">Please check your date filter and try again!</p>
-        </div>
+        <app-info-dialog
+          *ngIf="scoreboard && scoreboard.length === 0"
+          cssClass="alert-secondary"
+          heading="No Games found!"
+          title="No NBA Games are scheduled for the selected Date."
+          message="Please check your date filter and try again!">
+        </app-info-dialog>
       </div>
     </div>
   </div>
