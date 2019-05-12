@@ -1,7 +1,6 @@
 import {HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
 import {LoggerService} from '../services/logger.service';
-import {logger} from 'codelyzer/util/logger';
 import {catchError} from 'rxjs/operators';
 import {LoaderService} from '../services/loader.service';
 

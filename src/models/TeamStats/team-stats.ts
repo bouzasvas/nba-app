@@ -11,7 +11,7 @@ export interface TeamStats {
   fgMade: number;
   fgAttempted: number;
   fgPct: number;
-  f3gMade: number;
+  fg3Made: number;
   fg3Attempted: number;
   fg3Pct: number;
   ftMade: number;

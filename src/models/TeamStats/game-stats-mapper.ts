@@ -46,7 +46,7 @@ export class GameStatsMapper {
     teamStats.fgMade = teamStatsResponseObject[6];
     teamStats.fgAttempted = teamStatsResponseObject[7];
     teamStats.fgPct = teamStatsResponseObject[8];
-    teamStats.f3gMade = teamStatsResponseObject[9];
+    teamStats.fg3Made = teamStatsResponseObject[9];
     teamStats.fg3Attempted = teamStatsResponseObject[10];
     teamStats.fg3Pct = teamStatsResponseObject[11];
     teamStats.ftMade = teamStatsResponseObject[12];
