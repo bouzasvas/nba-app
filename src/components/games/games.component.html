@@ -1,19 +1,19 @@
 <section>
 
   <div class="container">
-    <div class="row">
+    <div class="row" (swiperight)="changeDate(-1)" (swipeleft)="changeDate(1)">
 
       <div class="col">
         <div id="game-date">
           <div class="row h-100 justify-content-center align-items-center border">
-            <div class="col-2 text-center">
+            <div class="col-1 col-sm-2 text-center">
               <a href="" data-toggle="tooltip" data-placement="bottom" title="Previous Day"
                  (click)="changeDate(-1)">
                 <i class="fas fa-angle-left"></i>
               </a>
             </div>
 
-            <div class="col text-center">
+            <div class="col col-sm text-center">
               <mat-form-field>
                 <mat-label>Selected Game Date</mat-label>
                 <input matInput [matDatepicker]="gameDate" [value]="selectedDate" (dateChange)="changeDate(0)" disabled>
@@ -23,7 +23,7 @@
 
             </div>
 
-            <div class="col-2 text-center">
+            <div class="col-1 col-sm-2 text-center">
               <a href="" data-toggle="tooltip" data-placement="bottom" title="Next Day"
                  (click)="changeDate(1)">
                 <i class="fas fa-angle-right"></i>
@@ -42,19 +42,19 @@
           <li *ngFor="let game of scoreboard" routerLink="/gamedetails/{{game.GameId}}"
               class="row align-items-center justify-content-center text-center border">
             <!-- Home Team -->
-            <div class="col team">
+            <div class="col-5 col-sm team">
               <img src="{{'../../'+game.HomeTeam.teamLogoPath}}">
               <p>{{game.HomeTeam.fullName}}</p>
               <p>{{game.HomeTeam.pointsScored}}</p>
             </div>
             <!-- vs - arena name -->
-            <div class="col versus">
+            <div class="col-2 col-sm versus">
               <span>vs</span>
               <p>{{game.ArenaName}}</p>
               <p>{{game.GameStatus }}</p>
             </div>
             <!-- Away Team -->
-            <div class="col team">
+            <div class="col-5 col-sm team">
               <img src="{{'../../'+game.AwayTeam.teamLogoPath}}">
               <p>{{game.AwayTeam.fullName}}</p>
               <p>{{game.AwayTeam.pointsScored}}</p>

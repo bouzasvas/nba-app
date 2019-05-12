@@ -10,7 +10,8 @@ declare var $: any;
 // Moment
 import * as moment from 'moment';
 import {Moment} from 'moment';
-
+// Hammer for touch events
+import 'hammerjs';
 
 @Component({
   selector: 'app-games',
