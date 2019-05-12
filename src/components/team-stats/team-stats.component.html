@@ -54,6 +54,149 @@
     </div>
 
     <h6 class="text-muted">Team Comparison</h6>
+    <div class="team-stats">
+      <div class="row align-items-center justify-content-center">
+        <div class="col-4 col-md text-center">
+          <img src="../../{{gameStats.homeTeamStats.team.teamLogoPath}}" alt="Home Team Logo">
+
+
+        </div>
+
+
+        <div id="vs" class="col-4 col-md-4 text-center">
+          vs
+        </div>
+
+        <div class="col-4 col-md text-center">
+          <img src="../../{{gameStats.awayTeamStats.team.teamLogoPath}}" alt="Away Team Logo">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-2 col-md text-center">
+          <ul class="list-unstyled">
+            <li>{{gameStats.homeTeamStats.fgMade}}</li>
+            <li>{{gameStats.homeTeamStats.fgAttempted}}</li>
+            <li>{{(gameStats.homeTeamStats.fgPct * 100 | number:'1.0-0') + '%'}}</li>
+            <li>{{gameStats.homeTeamStats.fg3Made}}</li>
+            <li>{{gameStats.homeTeamStats.fg3Attempted}}</li>
+            <li>{{(gameStats.homeTeamStats.fg3Pct * 100 | number:'1.0-0') + '%'}}</li>
+            <li>{{gameStats.homeTeamStats.ftMade}}</li>
+            <li>{{gameStats.homeTeamStats.ftAttempted}}</li>
+            <li>{{(gameStats.homeTeamStats.ftPct * 100 | number:'1.0-0') + '%'}}</li>
+            <li>{{gameStats.homeTeamStats.offensiveRebounds}}</li>
+            <li>{{gameStats.homeTeamStats.defensiveRebounds}}</li>
+            <li>{{gameStats.homeTeamStats.totalRebounds}}</li>
+            <li>{{gameStats.homeTeamStats.assists}}</li>
+            <li>{{gameStats.homeTeamStats.steals}}</li>
+            <li>{{gameStats.homeTeamStats.blocks}}</li>
+            <li>{{gameStats.homeTeamStats.otherTeamStats.pointsInPaint}}</li>
+            <li>{{gameStats.homeTeamStats.otherTeamStats.secondChancePoints}}</li>
+            <li>{{gameStats.homeTeamStats.otherTeamStats.fastbreakPoints}}</li>
+            <li>{{gameStats.homeTeamStats.turnovers}}</li>
+            <li>{{gameStats.homeTeamStats.personalFouls}}</li>
+            <li>{{gameStats.homeTeamStats.minutes}}</li>
+          </ul>
+
+        </div>
+
+        <div class="col-8 col-md-4 text-center">
+
+          <ul>
+            <li class="list-unstyled">
+              Field Goals Made
+            </li>
+            <li class="list-unstyled">
+              Field Goals Attempted
+            </li>
+            <li class="list-unstyled">
+              Field Goals %
+            </li>
+            <li class="list-unstyled">
+              3P Field Goals Made
+            </li>
+            <li class="list-unstyled">
+              3P Field Goals Attempted
+            </li>
+            <li class="list-unstyled">
+              3P Field Goals %
+            </li>
+            <li class="list-unstyled">
+              Free Throws Made
+            </li>
+            <li class="list-unstyled">
+              Free Throws Attempted
+            </li>
+            <li class="list-unstyled">
+              Free Throws %
+            </li>
+            <li class="list-unstyled">
+              Offensive Rebounds
+            </li>
+            <li class="list-unstyled">
+              Defensive Rebounds
+            </li>
+            <li class="list-unstyled">
+              Total Rebounds
+            </li>
+            <li class="list-unstyled">
+              Assists
+            </li>
+            <li class="list-unstyled">
+              Steals
+            </li>
+            <li class="list-unstyled">
+              Blocks
+            </li>
+            <li class="list-unstyled">
+              Points in Paint
+            </li>
+            <li class="list-unstyled">
+              Second Chance Points
+            </li>
+            <li class="list-unstyled">
+              Fastbreak Points
+            </li>
+            <li class="list-unstyled">
+              Turnovers
+            </li>
+            <li class="list-unstyled">
+              Personal Fouls
+            </li>
+            <li class="list-unstyled">
+              Minutes
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-2 col-md text-center">
+          <ul class="list-unstyled">
+            <li>{{gameStats.awayTeamStats.fgMade}}</li>
+            <li>{{gameStats.awayTeamStats.fgAttempted}}</li>
+            <li>{{(gameStats.awayTeamStats.fgPct * 100 | number:'1.0-0') + '%'}}</li>
+            <li>{{gameStats.awayTeamStats.fg3Made}}</li>
+            <li>{{gameStats.awayTeamStats.fg3Attempted}}</li>
+            <li>{{(gameStats.awayTeamStats.fg3Pct * 100 | number:'1.0-0') + '%'}}</li>
+            <li>{{gameStats.awayTeamStats.ftMade}}</li>
+            <li>{{gameStats.awayTeamStats.ftAttempted}}</li>
+            <li>{{(gameStats.awayTeamStats.ftPct * 100 | number:'1.0-0') + '%'}}</li>
+            <li>{{gameStats.awayTeamStats.offensiveRebounds}}</li>
+            <li>{{gameStats.awayTeamStats.defensiveRebounds}}</li>
+            <li>{{gameStats.awayTeamStats.totalRebounds}}</li>
+            <li>{{gameStats.awayTeamStats.assists}}</li>
+            <li>{{gameStats.awayTeamStats.steals}}</li>
+            <li>{{gameStats.awayTeamStats.blocks}}</li>
+            <li>{{gameStats.awayTeamStats.otherTeamStats.pointsInPaint}}</li>
+            <li>{{gameStats.awayTeamStats.otherTeamStats.secondChancePoints}}</li>
+            <li>{{gameStats.awayTeamStats.otherTeamStats.fastbreakPoints}}</li>
+            <li>{{gameStats.awayTeamStats.turnovers}}</li>
+            <li>{{gameStats.awayTeamStats.personalFouls}}</li>
+            <li>{{gameStats.awayTeamStats.minutes}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
 
   </div>
 
