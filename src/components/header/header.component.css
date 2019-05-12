@@ -7,6 +7,26 @@ nav > a > img {
   height: 80px;
 }
 
+@media screen and (max-width: 383px) {
+  nav > a > img {
+    width: 100px;
+    height: 65px;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 362px) {
+  nav > a > img {
+    width: 55px;
+    height: 50px;
+  }
+}
+
+@media screen and (max-width: 319px) {
+  nav > a > img {
+   display: none;
+  }
+}
+
 a {
   color: white !important;
 }
