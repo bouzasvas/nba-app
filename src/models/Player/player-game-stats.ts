@@ -2,6 +2,7 @@ export interface PlayerGameStats {
   id: string;
   name: string;
   position: string;
+  comment: string;
   minutes: string;
   fgm: number;
   fga: number;

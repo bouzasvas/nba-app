@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {GameStats} from '../../models/TeamStats/game-stats';
 
 @Component({
   selector: 'app-boxscore',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./boxscore.component.css']
 })
 export class BoxscoreComponent implements OnInit {
+  @Input() gameStats: GameStats;
 
   constructor() { }
 

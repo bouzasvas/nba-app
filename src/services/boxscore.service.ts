@@ -11,7 +11,7 @@ import {tap} from 'rxjs/operators';
 export class BoxscoreService {
 
   private boxscoreEndpointUrl = `${AppConstants.baseNbaApiUrl}//boxscoresummaryv2?GameID=`;
-  private boxscoreTraditionalEndpointUrl = `${AppConstants.baseNbaApiUrl}/boxscoretraditionalv2?EndPeriod=14&EndRange=10000&RangeType=0&StartPeriod=1&StartRange=0&GameID=`;
+  private boxscoreTraditionalEndpointUrl = `${AppConstants.baseNbaApiUrl}/boxscoretraditionalv2?EndPeriod=1&EndRange=0&RangeType=0&StartPeriod=1&StartRange=0&GameID=`;
 
   constructor(private Logger: LoggerService, private http: HttpClient) { }
 

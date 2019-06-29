@@ -19,7 +19,8 @@ export class CommonMapperFns {
         filteredRowset.push(rowset.filter(row => row[filterOb.index] === filterOb.value));
       });
 
-      rowset = _.first(filteredRowset);
+      // rowset = _.first(filteredRowset);
+      rowset = filteredRowset;
     }
 
     return rowset;

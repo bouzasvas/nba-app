@@ -1,11 +1,13 @@
 import {PointsPerQuarter} from './points-per-quarter';
 import {OtherTeamStats} from './other-team-stats';
 import {Team} from '../Team/team';
+import {Boxscore} from '../Boxscore/boxscore';
 
 export interface TeamStats {
   team: Team;
   pointsPerQuarter: PointsPerQuarter;
   otherTeamStats: OtherTeamStats;
+  boxscore: Boxscore;
 
   minutes: string;
   fgMade: number;
