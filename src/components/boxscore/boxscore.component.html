@@ -7,63 +7,141 @@
 
       <!-- Home Team Boxscore -->
       <div class="col">
+
+        <div class="team my-3">
+          <img src="{{'../../' && gameStats.homeTeamStats.team.teamLogoPath}}">
+          <span>{{gameStats.homeTeamStats.team.fullName}}</span>
+        </div>
+
         <div class="table-responsive">
-          <table class="table table-hover">
+          <table class="table table-sm table-hover">
             <thead>
-              <tr>
-                <th scope="col">NAME</th>
-                <th scope="col">POS</th>
-                <th scope="col">MIN</th>
-                <th scope="col">FGM</th>
-                <th scope="col">FGA</th>
-                <th scope="col">FG%</th>
-                <th scope="col">3PM</th>
-                <th scope="col">3PA</th>
-                <th scope="col">3P%</th>
-                <th scope="col">FTM</th>
-                <th scope="col">FTA</th>
-                <th scope="col">FT%</th>
-                <th scope="col">OREB</th>
-                <th scope="col">DREB</th>
-                <th scope="col">REB</th>
-                <th scope="col">AST</th>
-                <th scope="col">STL</th>
-                <th scope="col">BLK</th>
-                <th scope="col">TOV</th>
-                <th scope="col">PF</th>
-                <th scope="col">PTS</th>
-                <th scope="col">+/-</th>
-              </tr>
+            <tr>
+              <th scope="col">NAME</th>
+              <th scope="col">POS</th>
+              <th scope="col">MIN</th>
+              <th scope="col">FGM</th>
+              <th scope="col">FGA</th>
+              <th scope="col">FG%</th>
+              <th scope="col">3PM</th>
+              <th scope="col">3PA</th>
+              <th scope="col">3P%</th>
+              <th scope="col">FTM</th>
+              <th scope="col">FTA</th>
+              <th scope="col">FT%</th>
+              <th scope="col">OREB</th>
+              <th scope="col">DREB</th>
+              <th scope="col">REB</th>
+              <th scope="col">AST</th>
+              <th scope="col">STL</th>
+              <th scope="col">BLK</th>
+              <th scope="col">TOV</th>
+              <th scope="col">PF</th>
+              <th scope="col">PTS</th>
+              <th scope="col">+/-</th>
+            </tr>
             </thead>
 
             <tbody>
-              <tr *ngFor="let player of gameStats.homeTeamStats.boxscore.boxscorePlayersStats">
-                <th scope="row">{{player.name}}</th>
+            <tr *ngFor="let player of gameStats.homeTeamStats.boxscore.boxscorePlayersStats">
+              <th scope="row">{{player.name}}</th>
 
-                <!-- TODO: Implement DNP -->
+              <td *ngIf="player.comment" colspan="21">{{player.comment}}</td>
 
-                <td>{{player.position}}</td>
-                <td>{{player.minutes}}</td>
-                <td>{{player.fgm}}</td>
-                <td>{{player.fga}}</td>
-                <td>{{player.fg_pct * 100 | number:'1.0-2'}}</td>
-                <td>{{player.fg3m}}</td>
-                <td>{{player.fg3a}}</td>
-                <td>{{player.fg3_pct * 100}}</td>
-                <td>{{player.ftm}}</td>
-                <td>{{player.fta}}</td>
-                <td>{{player.ft_pct * 100}}</td>
-                <td>{{player.offensiveRebounds}}</td>
-                <td>{{player.defensiveRebounds}}</td>
-                <td>{{player.totalRebounds}}</td>
-                <td>{{player.assists}}</td>
-                <td>{{player.steals}}</td>
-                <td>{{player.blocks}}</td>
-                <td>{{player.turnovers}}</td>
-                <td>{{player.personalFouls}}</td>
-                <td>{{player.pointsScored}}</td>
-                <td>{{player.plusMinus}}</td>
-              </tr>
+              <td *ngIf="!player.comment">{{player.position}}</td>
+              <td *ngIf="!player.comment">{{player.minutes}}</td>
+              <td *ngIf="!player.comment">{{player.fgm}}</td>
+              <td *ngIf="!player.comment">{{player.fga}}</td>
+              <td *ngIf="!player.comment">{{player.fg_pct * 100 | number:'1.0-2'}}</td>
+              <td *ngIf="!player.comment">{{player.fg3m}}</td>
+              <td *ngIf="!player.comment">{{player.fg3a}}</td>
+              <td *ngIf="!player.comment">{{player.fg3_pct * 100 | number:'1.0-2'}}</td>
+              <td *ngIf="!player.comment">{{player.ftm}}</td>
+              <td *ngIf="!player.comment">{{player.fta}}</td>
+              <td *ngIf="!player.comment">{{player.ft_pct * 100 | number:'1.0-2'}}</td>
+              <td *ngIf="!player.comment">{{player.offensiveRebounds}}</td>
+              <td *ngIf="!player.comment">{{player.defensiveRebounds}}</td>
+              <td *ngIf="!player.comment">{{player.totalRebounds}}</td>
+              <td *ngIf="!player.comment">{{player.assists}}</td>
+              <td *ngIf="!player.comment">{{player.steals}}</td>
+              <td *ngIf="!player.comment">{{player.blocks}}</td>
+              <td *ngIf="!player.comment">{{player.turnovers}}</td>
+              <td *ngIf="!player.comment">{{player.personalFouls}}</td>
+              <td *ngIf="!player.comment">{{player.pointsScored}}</td>
+              <td *ngIf="!player.comment">{{player.plusMinus}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="w-100"></div>
+
+      <!-- Away Team Boxscore -->
+      <div class="col">
+
+        <div class="team my-3">
+          <img src="{{'../../' && gameStats.awayTeamStats.team.teamLogoPath}}">
+          <span>{{gameStats.awayTeamStats.team.fullName}}</span>
+        </div>
+
+        <div class="table-responsive">
+          <table class="table table-sm table-hover">
+            <thead>
+            <tr>
+              <th scope="col">NAME</th>
+              <th scope="col">POS</th>
+              <th scope="col">MIN</th>
+              <th scope="col">FGM</th>
+              <th scope="col">FGA</th>
+              <th scope="col">FG%</th>
+              <th scope="col">3PM</th>
+              <th scope="col">3PA</th>
+              <th scope="col">3P%</th>
+              <th scope="col">FTM</th>
+              <th scope="col">FTA</th>
+              <th scope="col">FT%</th>
+              <th scope="col">OREB</th>
+              <th scope="col">DREB</th>
+              <th scope="col">REB</th>
+              <th scope="col">AST</th>
+              <th scope="col">STL</th>
+              <th scope="col">BLK</th>
+              <th scope="col">TOV</th>
+              <th scope="col">PF</th>
+              <th scope="col">PTS</th>
+              <th scope="col">+/-</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr *ngFor="let player of gameStats.awayTeamStats.boxscore.boxscorePlayersStats">
+              <th scope="row">{{player.name}}</th>
+
+              <td *ngIf="player.comment" colspan="21">{{player.comment}}</td>
+
+              <td *ngIf="!player.comment">{{player.position}}</td>
+              <td *ngIf="!player.comment">{{player.minutes}}</td>
+              <td *ngIf="!player.comment">{{player.fgm}}</td>
+              <td *ngIf="!player.comment">{{player.fga}}</td>
+              <td *ngIf="!player.comment">{{player.fg_pct * 100 | number:'1.0-2'}}</td>
+              <td *ngIf="!player.comment">{{player.fg3m}}</td>
+              <td *ngIf="!player.comment">{{player.fg3a}}</td>
+              <td *ngIf="!player.comment">{{player.fg3_pct * 100 | number:'1.0-2'}}</td>
+              <td *ngIf="!player.comment">{{player.ftm}}</td>
+              <td *ngIf="!player.comment">{{player.fta}}</td>
+              <td *ngIf="!player.comment">{{player.ft_pct * 100 | number:'1.0-2'}}</td>
+              <td *ngIf="!player.comment">{{player.offensiveRebounds}}</td>
+              <td *ngIf="!player.comment">{{player.defensiveRebounds}}</td>
+              <td *ngIf="!player.comment">{{player.totalRebounds}}</td>
+              <td *ngIf="!player.comment">{{player.assists}}</td>
+              <td *ngIf="!player.comment">{{player.steals}}</td>
+              <td *ngIf="!player.comment">{{player.blocks}}</td>
+              <td *ngIf="!player.comment">{{player.turnovers}}</td>
+              <td *ngIf="!player.comment">{{player.personalFouls}}</td>
+              <td *ngIf="!player.comment">{{player.pointsScored}}</td>
+              <td *ngIf="!player.comment">{{player.plusMinus}}</td>
+            </tr>
             </tbody>
           </table>
         </div>
