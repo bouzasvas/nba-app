@@ -28,4 +28,5 @@ export interface TeamStats {
   turnovers: number;
   personalFouls: number;
   points: number;
+  plusMinus: number;
 }

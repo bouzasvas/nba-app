@@ -73,6 +73,7 @@ export class GameStatsMapper {
     teamStats.turnovers = teamStatsResponseObject[21];
     teamStats.personalFouls = teamStatsResponseObject[22];
     teamStats.points = teamStatsResponseObject[23];
+    teamStats.plusMinus = teamStatsResponseObject[24];
 
     return teamStats;
   }
