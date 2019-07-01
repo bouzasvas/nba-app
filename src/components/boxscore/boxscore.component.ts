@@ -11,10 +11,17 @@ declare var $: any;
 export class BoxscoreComponent implements OnInit {
   @Input() gameStats: GameStats;
 
+  selectedTeam = 'Both Teams';
+
   constructor() { }
 
   ngOnInit() {
     this.enableTooltips();
+  }
+
+  selectTeam(evt: Event, selectedTeam: string): void {
+    evt.preventDefault();
+    this.selectedTeam = selectedTeam;
   }
 
   private enableTooltips(): void {
