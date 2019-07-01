@@ -21,7 +21,7 @@ export class GameStatsService {
     return forkJoin(boxscoreObservable, boxscoreTraditionalObservable)
       .pipe(
         map(responses => GameStatsMapper.convertResponsesToTeamStatsObject(responses[0], responses[1])),
-        tap(_ => `Succesfully finished all requests for game ${gameId} stats!`)
+        tap(_ => `Successfully finished all requests for game ${gameId} stats!`)
       );
   }
 }
