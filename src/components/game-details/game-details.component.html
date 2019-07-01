@@ -13,6 +13,9 @@
           <mat-tab label="Boxscore" #boxscoreTab>
             <app-boxscore *ngIf="boxscoreTab.isActive" [gameStats]="gameStats"></app-boxscore>
           </mat-tab>
+          <mat-tab label="Highlights">
+            <app-game-highlights></app-game-highlights>
+          </mat-tab>
         </mat-tab-group>
 
         <!-- In case that something goes wrong -->

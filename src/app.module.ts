@@ -23,6 +23,7 @@ import { HomeComponent } from './components/home/home.component';
 import { TeamStatsComponent } from './components/team-stats/team-stats.component';
 import { BoxscoreComponent } from './components/boxscore/boxscore.component';
 import { InfoDialogComponent } from './components/info-dialog/info-dialog.component';
+import { GameHighlightsComponent } from './components/game-highlights/game-highlights.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { InfoDialogComponent } from './components/info-dialog/info-dialog.compon
     HomeComponent,
     TeamStatsComponent,
     BoxscoreComponent,
-    InfoDialogComponent
+    InfoDialogComponent,
+    GameHighlightsComponent
   ],
   imports: [
     BrowserModule,
