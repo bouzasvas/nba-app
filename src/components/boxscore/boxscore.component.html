@@ -4,6 +4,7 @@
     <div class="row">
 
       <!-- TODO: Implement Home/Away team tabs? -->
+      <!-- TODO: Implement Totals per Team -->
 
       <!-- Home Team Boxscore -->
       <div class="col">
@@ -17,38 +18,36 @@
           <table class="table table-sm table-hover">
             <thead>
             <tr>
-              <th scope="col">NAME</th>
-              <th scope="col">POS</th>
-              <th scope="col">MIN</th>
-              <th scope="col">FGM</th>
-              <th scope="col">FGA</th>
-              <th scope="col">FG%</th>
-              <th scope="col">3PM</th>
-              <th scope="col">3PA</th>
-              <th scope="col">3P%</th>
-              <th scope="col">FTM</th>
-              <th scope="col">FTA</th>
-              <th scope="col">FT%</th>
-              <th scope="col">OREB</th>
-              <th scope="col">DREB</th>
-              <th scope="col">REB</th>
-              <th scope="col">AST</th>
-              <th scope="col">STL</th>
-              <th scope="col">BLK</th>
-              <th scope="col">TOV</th>
-              <th scope="col">PF</th>
-              <th scope="col">PTS</th>
-              <th scope="col">+/-</th>
+              <th scope="col">PLAYER</th>
+              <th scope="col" data-toggle="tooltip" data-placement="top" title="Minutes">MIN</th>
+              <th scope="col" data-toggle="tooltip" data-placement="top" title="Field Goals Made">FGM</th>
+              <th scope="col" data-toggle="tooltip" data-placement="top" title="Field Goals Attempted">FGA</th>
+              <th scope="col" data-toggle="tooltip" data-placement="top" title="Field Goals Percentage">FG%</th>
+              <th scope="col" data-toggle="tooltip" data-placement="top" title="Three Pointers Made">3PM</th>
+              <th scope="col" data-toggle="tooltip" data-placement="top" title="Three Pointers Attempted">3PA</th>
+              <th scope="col" data-toggle="tooltip" data-placement="top" title="Three Pointers Percentage">3P%</th>
+              <th scope="col" data-toggle="tooltip" data-placement="top" title="Free Throws Made">FTM</th>
+              <th scope="col" data-toggle="tooltip" data-placement="top" title="Free Throws Attempted">FTA</th>
+              <th scope="col" data-toggle="tooltip" data-placement="top" title="Free Throws Percentage">FT%</th>
+              <th scope="col" data-toggle="tooltip" data-placement="top" title="Offensive Rebounds">OREB</th>
+              <th scope="col" data-toggle="tooltip" data-placement="top" title="Defensive Rebounds">DREB</th>
+              <th scope="col" data-toggle="tooltip" data-placement="top" title="Rebounds">REB</th>
+              <th scope="col" data-toggle="tooltip" data-placement="top" title="Assists">AST</th>
+              <th scope="col" data-toggle="tooltip" data-placement="top" title="Steals">STL</th>
+              <th scope="col" data-toggle="tooltip" data-placement="top" title="Blocks">BLK</th>
+              <th scope="col" data-toggle="tooltip" data-placement="top" title="Turnovers">TOV</th>
+              <th scope="col" data-toggle="tooltip" data-placement="top" title="Personal Fouls">PF</th>
+              <th scope="col" data-toggle="tooltip" data-placement="top" title="Points">PTS</th>
+              <th scope="col" data-toggle="tooltip" data-placement="top" title="Plus/Minus">+/-</th>
             </tr>
             </thead>
 
             <tbody>
             <tr *ngFor="let player of gameStats.homeTeamStats.boxscore.boxscorePlayersStats">
-              <th scope="row">{{player.name}}</th>
+              <th scope="row"><a href="https://stats.nba.com/player/{{player.id}}/" target="_blank">{{player.name}}<sup class="ml-1">{{player.position}}</sup></a></th>
 
               <td *ngIf="player.comment" colspan="21">{{player.comment}}</td>
 
-              <td *ngIf="!player.comment">{{player.position}}</td>
               <td *ngIf="!player.comment">{{player.minutes}}</td>
               <td *ngIf="!player.comment">{{player.fgm}}</td>
               <td *ngIf="!player.comment">{{player.fga}}</td>
@@ -88,39 +87,37 @@
         <div class="table-responsive">
           <table class="table table-sm table-hover">
             <thead>
-            <tr>
-              <th scope="col">NAME</th>
-              <th scope="col">POS</th>
-              <th scope="col">MIN</th>
-              <th scope="col">FGM</th>
-              <th scope="col">FGA</th>
-              <th scope="col">FG%</th>
-              <th scope="col">3PM</th>
-              <th scope="col">3PA</th>
-              <th scope="col">3P%</th>
-              <th scope="col">FTM</th>
-              <th scope="col">FTA</th>
-              <th scope="col">FT%</th>
-              <th scope="col">OREB</th>
-              <th scope="col">DREB</th>
-              <th scope="col">REB</th>
-              <th scope="col">AST</th>
-              <th scope="col">STL</th>
-              <th scope="col">BLK</th>
-              <th scope="col">TOV</th>
-              <th scope="col">PF</th>
-              <th scope="col">PTS</th>
-              <th scope="col">+/-</th>
-            </tr>
+              <tr>
+                <th scope="col">PLAYER</th>
+                <th scope="col" data-toggle="tooltip" data-placement="top" title="Minutes">MIN</th>
+                <th scope="col" data-toggle="tooltip" data-placement="top" title="Field Goals Made">FGM</th>
+                <th scope="col" data-toggle="tooltip" data-placement="top" title="Field Goals Attempted">FGA</th>
+                <th scope="col" data-toggle="tooltip" data-placement="top" title="Field Goals Percentage">FG%</th>
+                <th scope="col" data-toggle="tooltip" data-placement="top" title="Three Pointers Made">3PM</th>
+                <th scope="col" data-toggle="tooltip" data-placement="top" title="Three Pointers Attempted">3PA</th>
+                <th scope="col" data-toggle="tooltip" data-placement="top" title="Three Pointers Percentage">3P%</th>
+                <th scope="col" data-toggle="tooltip" data-placement="top" title="Free Throws Made">FTM</th>
+                <th scope="col" data-toggle="tooltip" data-placement="top" title="Free Throws Attempted">FTA</th>
+                <th scope="col" data-toggle="tooltip" data-placement="top" title="Free Throws Percentage">FT%</th>
+                <th scope="col" data-toggle="tooltip" data-placement="top" title="Offensive Rebounds">OREB</th>
+                <th scope="col" data-toggle="tooltip" data-placement="top" title="Defensive Rebounds">DREB</th>
+                <th scope="col" data-toggle="tooltip" data-placement="top" title="Rebounds">REB</th>
+                <th scope="col" data-toggle="tooltip" data-placement="top" title="Assists">AST</th>
+                <th scope="col" data-toggle="tooltip" data-placement="top" title="Steals">STL</th>
+                <th scope="col" data-toggle="tooltip" data-placement="top" title="Blocks">BLK</th>
+                <th scope="col" data-toggle="tooltip" data-placement="top" title="Turnovers">TOV</th>
+                <th scope="col" data-toggle="tooltip" data-placement="top" title="Personal Fouls">PF</th>
+                <th scope="col" data-toggle="tooltip" data-placement="top" title="Points">PTS</th>
+                <th scope="col" data-toggle="tooltip" data-placement="top" title="Plus/Minus">+/-</th>
+              </tr>
             </thead>
 
             <tbody>
             <tr *ngFor="let player of gameStats.awayTeamStats.boxscore.boxscorePlayersStats">
-              <th scope="row">{{player.name}}</th>
+              <th scope="row"><a href="https://stats.nba.com/player/{{player.id}}/" target="_blank">{{player.name}}<sup class="ml-1">{{player.position}}</sup></a></th>
 
               <td *ngIf="player.comment" colspan="21">{{player.comment}}</td>
 
-              <td *ngIf="!player.comment">{{player.position}}</td>
               <td *ngIf="!player.comment">{{player.minutes}}</td>
               <td *ngIf="!player.comment">{{player.fgm}}</td>
               <td *ngIf="!player.comment">{{player.fga}}</td>

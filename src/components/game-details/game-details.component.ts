@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {GameStatsService} from '../../services/game-stats.service';
 import {GameStats} from '../../models/TeamStats/game-stats';
@@ -16,7 +16,8 @@ export class GameDetailsComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private gameStatsService: GameStatsService,
-              public loader: LoaderService) { }
+              public loader: LoaderService) {
+  }
 
   ngOnInit() {
     this.gameId = this.route.snapshot.paramMap.get('id');
@@ -29,9 +30,6 @@ export class GameDetailsComponent implements OnInit {
     this.gameStatsService.getGameStats(this.gameId)
       .subscribe(stats => {
         this.gameStats = stats;
-
-        console.log(this.gameStats);
-
         this.loader.toggleLoader();
       });
   }

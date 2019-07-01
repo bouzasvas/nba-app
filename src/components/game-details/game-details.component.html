@@ -10,8 +10,8 @@
           <mat-tab label="Team Stats">
             <app-team-stats [gameStats]="gameStats"></app-team-stats>
           </mat-tab>
-          <mat-tab label="Boxscore">
-            <app-boxscore [gameStats]="gameStats"></app-boxscore>
+          <mat-tab label="Boxscore" #boxscoreTab>
+            <app-boxscore *ngIf="boxscoreTab.isActive" [gameStats]="gameStats"></app-boxscore>
           </mat-tab>
         </mat-tab-group>
 
