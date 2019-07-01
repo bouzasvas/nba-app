@@ -1,5 +1,20 @@
+.team-selector span.select-team-span {
+  font-family: 'Indie Flower', cursive;
+  font-size: 16pt;
+}
+
+.team-selector div.dropdown-menu > a:first-child{
+  text-align: right;
+}
+
 .team-selector div.dropdown-menu > a > img {
   width: 50px;
+}
+
+.team-boxscore div.team > span {
+  font-size: 16pt;
+  font-style: italic;
+  letter-spacing: 5pt;
 }
 
 /* Player Position Superscript */
