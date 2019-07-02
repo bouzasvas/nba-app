@@ -6,13 +6,14 @@ import {tap} from 'rxjs/internal/operators/tap';
 import {LeagueLeaders} from '../models/LeagueLeaders/league-leaders';
 import {map} from 'rxjs/operators';
 import {LeagueLeadersMapper} from '../models/LeagueLeaders/league-leaders-mapper';
+import {AppConstants} from '../common/app-constants';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LeagueLeadersService {
 
-  private serviceEndpointUrl = (playerOrTeam, season, seasonType) => `https://stats.nba.com/stats/homepagev2?GameScope=Season&LeagueID=00&PlayerOrTeam=${playerOrTeam}&PlayerScope=All+Players&StatType=Traditional&Season=${season}&SeasonType=${seasonType}`;
+  private serviceEndpointUrl = (playerOrTeam, season, seasonType) => `${AppConstants.baseNbaApiUrl}/homepagev2?GameScope=Season&LeagueID=00&PlayerOrTeam=${playerOrTeam}&PlayerScope=All+Players&StatType=Traditional&Season=${season}&SeasonType=${seasonType}`;
 
   constructor(private logger: LoggerService, private http: HttpClient) { }
 

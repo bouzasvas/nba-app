@@ -1,4 +1,4 @@
-export interface BlocksLeader {
+export interface CategoryGeneric {
   rank: number;
   playerId: string;
   player: string;
@@ -7,5 +7,5 @@ export interface BlocksLeader {
   teamName: string;
   jerseyNum: number;
   playerPosition: string;
-  blocks: number;
+  categoryStat: number;
 }
