@@ -1,0 +1,5 @@
+div.card ul > li span.rank:after {
+  content: ". ";
+}
+
+/* TODO: Home Page Cards Styles */

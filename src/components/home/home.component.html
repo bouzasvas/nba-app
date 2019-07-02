@@ -1,1 +1,169 @@
-<p>{{leagueLeaders | json }}</p>
+<section>
+  <div class="container">
+    <!-- TODO: Implement Filters -->
+
+    <div class="row py-5">
+
+      <div class="col-4">
+        <div class="card">
+          <!--          <img src="..." class="card-img-top" alt="...">-->
+          <div class="card-body">
+            <h5 class="card-title">Points Leaders</h5>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item" *ngFor="let leader of leagueLeaders.pointsLeaders">
+              <span class="rank">{{leader.rank}}</span>
+              <span class="player-name">{{leader.player}}</span>
+              <span class="category-stat">{{leader.categoryStat}}</span>
+            </li>
+          </ul>
+          <div class="card-body">
+            <a target="_blank" href="https://stats.nba.com/leaders/?Season={{selectedSeason}}&SeasonType={{selectedSeasonType}}" class="card-link">More on nba.com</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-4">
+        <div class="card">
+          <!--          <img src="..." class="card-img-top" alt="...">-->
+          <div class="card-body">
+            <h5 class="card-title">Rebounds Leaders</h5>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item" *ngFor="let leader of leagueLeaders.reboundsLeaders">
+              <span class="rank">{{leader.rank}}</span>
+              <span class="player-name">{{leader.player}}</span>
+              <span class="category-stat">{{leader.categoryStat}}</span>
+            </li>
+          </ul>
+          <div class="card-body">
+            <a target="_blank" href="https://stats.nba.com/leaders/?Season={{selectedSeason}}&SeasonType={{selectedSeasonType}}&StatCategory=REB" class="card-link">More on nba.com</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-4">
+        <div class="card">
+          <!--          <img src="..." class="card-img-top" alt="...">-->
+          <div class="card-body">
+            <h5 class="card-title">Assists Leaders</h5>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item" *ngFor="let leader of leagueLeaders.assistsLeaders">
+              <span class="rank">{{leader.rank}}</span>
+              <span class="player-name">{{leader.player}}</span>
+              <span class="category-stat">{{leader.categoryStat}}</span>
+            </li>
+          </ul>
+          <div class="card-body">
+            <a target="_blank" href="https://stats.nba.com/leaders/?Season={{selectedSeason}}&SeasonType={{selectedSeasonType}}&StatCategory=REB" class="card-link">More on nba.com</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row py-5">
+
+      <div class="col-4">
+        <div class="card">
+          <!--          <img src="..." class="card-img-top" alt="...">-->
+          <div class="card-body">
+            <h5 class="card-title">Steals Leaders</h5>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item" *ngFor="let leader of leagueLeaders.stealsLeaders">
+              <span class="rank">{{leader.rank}}</span>
+              <span class="player-name">{{leader.player}}</span>
+              <span class="category-stat">{{leader.categoryStat}}</span>
+            </li>
+          </ul>
+          <div class="card-body">
+            <a target="_blank" href="https://stats.nba.com/leaders/?Season={{selectedSeason}}&SeasonType={{selectedSeasonType}}&StatCategory=STL" class="card-link">More on nba.com</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-4">
+        <div class="card">
+          <!--          <img src="..." class="card-img-top" alt="...">-->
+          <div class="card-body">
+            <h5 class="card-title">Blocks Leaders</h5>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item" *ngFor="let leader of leagueLeaders.blocksLeaders">
+              <span class="rank">{{leader.rank}}</span>
+              <span class="player-name">{{leader.player}}</span>
+              <span class="category-stat">{{leader.categoryStat}}</span>
+            </li>
+          </ul>
+          <div class="card-body">
+            <a target="_blank" href="https://stats.nba.com/leaders/?Season={{selectedSeason}}&SeasonType={{selectedSeasonType}}&StatCategory=BLK" class="card-link">More on nba.com</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-4">
+        <div class="card">
+          <!--          <img src="..." class="card-img-top" alt="...">-->
+          <div class="card-body">
+            <h5 class="card-title">FG% Leaders</h5>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item" *ngFor="let leader of leagueLeaders.fgPercentageLeaders">
+              <span class="rank">{{leader.rank}}</span>
+              <span class="player-name">{{leader.player}}</span>
+              <span class="category-stat">{{leader.categoryStat * 100 | number:'1.0-2'}}</span>
+            </li>
+          </ul>
+          <div class="card-body">
+            <a target="_blank" href="https://stats.nba.com/leaders/?StatCategory=FG_PCT&PerMode=Totals&Season={{selectedSeason}}&SeasonType={{selectedSeasonType}}" class="card-link">More on nba.com</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row py-5">
+
+      <div class="col-4">
+        <div class="card">
+          <!--          <img src="..." class="card-img-top" alt="...">-->
+          <div class="card-body">
+            <h5 class="card-title">3PT% Leaders</h5>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item" *ngFor="let leader of leagueLeaders.fg3PercentageLeaders">
+              <span class="rank">{{leader.rank}}</span>
+              <span class="player-name">{{leader.player}}</span>
+              <span class="category-stat">{{leader.categoryStat * 100 | number:'1.0-2'}}</span>
+            </li>
+          </ul>
+          <div class="card-body">
+            <a target="_blank" href="https://stats.nba.com/leaders/?StatCategory=FG3_PCT&PerMode=Totals&Season={{selectedSeason}}&SeasonType={{selectedSeasonType}}" class="card-link">More on nba.com</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-4">
+        <div class="card">
+          <!--          <img src="..." class="card-img-top" alt="...">-->
+          <div class="card-body">
+            <h5 class="card-title">FT% Leaders</h5>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item" *ngFor="let leader of leagueLeaders.ftPercentageLeaders">
+              <span class="rank">{{leader.rank}}</span>
+              <span class="player-name">{{leader.player}}</span>
+              <span class="category-stat">{{leader.categoryStat * 100 | number:'1.0-2'}}</span>
+            </li>
+          </ul>
+          <div class="card-body">
+            <a target="_blank" href="https://stats.nba.com/leaders/?StatCategory=FT_PCT&PerMode=Totals&Season={{selectedSeason}}&SeasonType={{selectedSeasonType}}" class="card-link">More on nba.com</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
