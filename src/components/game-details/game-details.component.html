@@ -14,7 +14,11 @@
             <app-boxscore *ngIf="boxscoreTab.isActive" [gameStats]="gameStats"></app-boxscore>
           </mat-tab>
           <mat-tab label="Highlights">
-            <app-game-highlights></app-game-highlights>
+            <app-game-highlights
+              [gameDate]="gameDate"
+              [homeTeam]="gameStats.homeTeamStats.team.fullName"
+              [awayTeam]="gameStats.awayTeamStats.team.fullName">
+            </app-game-highlights>
           </mat-tab>
         </mat-tab-group>
 

@@ -11,6 +11,8 @@ import {LoaderService} from '../../services/loader.service';
 })
 export class GameDetailsComponent implements OnInit {
 
+  gameDate: string;
+
   gameId: string;
   gameStats: GameStats;
 
@@ -20,6 +22,9 @@ export class GameDetailsComponent implements OnInit {
   }
 
   ngOnInit() {
+    // Get Game Date from URL
+    this.gameDate = this.route.snapshot.queryParamMap.get('gameDate');
+
     this.gameId = this.route.snapshot.paramMap.get('id');
     this.getGameStats();
   }
