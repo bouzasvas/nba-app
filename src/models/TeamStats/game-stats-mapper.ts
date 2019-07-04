@@ -89,7 +89,7 @@ export class GameStatsMapper {
     // Get OT points and keep only non-zero values
     ptsPerQuarter.otQtrArray = response
       .slice(12, 22)
-      .filter(otPts => otPts !== 0);
+      .filter(otPts => otPts !== 0 && otPts !== null);
 
     ptsPerQuarter.total = response[22];
 
