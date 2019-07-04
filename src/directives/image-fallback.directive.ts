@@ -5,7 +5,7 @@ import {Directive, HostBinding, HostListener, Input} from '@angular/core';
 })
 export class ImageFallbackDirective {
 
-  @HostBinding('src', ['$event.target'])
+  @HostBinding('src')
   @Input() src: string;
 
   @Input() default: string;
