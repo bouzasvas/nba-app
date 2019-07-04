@@ -1,7 +1,8 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import { StandingsPerTeam } from '../../models/Standings/standings';
+import {StandingsPerTeam} from '../../models/Standings/standings';
 import {StandingsService} from '../../services/standings.service';
 import {LoaderService} from '../../services/loader.service';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-standings',
@@ -18,9 +19,15 @@ export class StandingsComponent implements OnInit {
   eastConferenceStandings: Array<StandingsPerTeam>;
   westConferenceStandings: Array<StandingsPerTeam>;
 
-  constructor(private standingsService: StandingsService, private loader: LoaderService) {}
+  constructor(private title: Title, private standingsService: StandingsService, private loader: LoaderService) {
+  }
 
   ngOnInit() {
+    this.title.setTitle(`NBA Stats - Standings`);
+    this.getStandings();
+  }
+
+  private getStandings(): void {
     this.loader.toggleLoader();
 
     this.standingsService.getTodayStandings()
@@ -51,8 +58,7 @@ export class StandingsComponent implements OnInit {
 
     if (selectedConf === 'East') {
       this.westConferenceStandings.splice(0);
-    }
-    else if (selectedConf === 'West') {
+    } else if (selectedConf === 'West') {
       this.eastConferenceStandings.splice(0);
     }
   }

@@ -4,6 +4,7 @@ import {LeagueLeadersService} from '../../services/league-leaders.service';
 import {LoaderService} from '../../services/loader.service';
 
 import * as _ from 'lodash';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -29,10 +30,12 @@ export class HomeComponent implements OnInit {
   // Template Data
   leagueLeaders: LeagueLeaders;
 
-  constructor(private leagueLeadersService: LeagueLeadersService, private loader: LoaderService) {
+  constructor(private title: Title, private leagueLeadersService: LeagueLeadersService, private loader: LoaderService) {
   }
 
   ngOnInit() {
+    this.title.setTitle('NBA Stats');
+
     this.initTemplateFilterFields();
     this.getLeagueLeaders();
   }

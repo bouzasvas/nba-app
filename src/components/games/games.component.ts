@@ -12,6 +12,7 @@ import * as moment from 'moment';
 import {Moment} from 'moment';
 // Hammer for touch events
 import 'hammerjs';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-games',
@@ -25,10 +26,12 @@ export class GamesComponent implements OnInit {
 
   scoreboard: Array<Scoreboard>;
 
-  constructor(private loader: LoaderService, private scoreboardService: ScoreboardService) {
+  constructor(private title: Title, private loader: LoaderService, private scoreboardService: ScoreboardService) {
   }
 
   ngOnInit() {
+    this.title.setTitle(`NBA Stats - Games`);
+
     // Enable tooltips
     $(() => {
       $('[data-toggle="tooltip"]').tooltip();

@@ -3,6 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 import {GameStatsService} from '../../services/game-stats.service';
 import {GameStats} from '../../models/TeamStats/game-stats';
 import {LoaderService} from '../../services/loader.service';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-game-details',
@@ -17,6 +18,7 @@ export class GameDetailsComponent implements OnInit {
   gameStats: GameStats;
 
   constructor(private route: ActivatedRoute,
+              private title: Title,
               private gameStatsService: GameStatsService,
               public loader: LoaderService) {
   }
@@ -35,6 +37,8 @@ export class GameDetailsComponent implements OnInit {
     this.gameStatsService.getGameStats(this.gameId)
       .subscribe(stats => {
         this.gameStats = stats;
+        this.title.setTitle(`NBA Stats - ${this.gameStats.homeTeamStats.team.fullName} vs ${this.gameStats.awayTeamStats.team.fullName} Game Details`);
+
         this.loader.toggleLoader();
       });
   }
