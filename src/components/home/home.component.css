@@ -3,6 +3,10 @@ div.container h1.page-header-title {
   font-size: 35pt;
 }
 
+div.card > img {
+  height: 250px;
+}
+
 div.card ul > li span.rank:after {
   content: ". ";
 }
