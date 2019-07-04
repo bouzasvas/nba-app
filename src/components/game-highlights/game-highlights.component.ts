@@ -4,6 +4,7 @@ import {YoutubeApiService} from '../../services/youtube-api.service';
 import {YoutubeApiSearchResults} from '../../models/YoutubeApi/youtube-api-search-results';
 
 import * as moment from 'moment';
+import {YoutubeApiMapper} from '../../models/YoutubeApi/youtube-api-mapper';
 
 @Component({
   selector: 'app-game-highlights',
@@ -18,19 +19,20 @@ export class GameHighlightsComponent implements OnInit {
 
   gameHighlights: Array<YoutubeApiSearchResults>;
 
-  constructor(private loader: LoaderService, private youtubeApi: YoutubeApiService) { }
+  constructor(private loader: LoaderService, private youtubeApi: YoutubeApiService, private youtubeApiMapper: YoutubeApiMapper) { }
 
   ngOnInit() {
     this.getGameHighlights();
   }
 
   private getGameHighlights(): void {
-    this.loader.toggleLoader();
+    const searchTerm = this.constructSearchTerm();
 
+    this.loader.toggleLoader();
     this.youtubeApi
-      .getVideosBySearchTerm(this.constructSearchTerm())
+      .getVideosBySearchTerm(searchTerm)
       .subscribe(youtubeVideos => {
-        this.gameHighlights = youtubeVideos;
+        this.gameHighlights = youtubeVideos.filter(video => this.youtubeApiMapper.filterYoutubeVideosBasedOnTitleAndGameDetails(video, searchTerm));
 
         this.loader.toggleLoader();
       });

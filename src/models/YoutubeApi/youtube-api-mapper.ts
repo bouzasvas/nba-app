@@ -7,7 +7,8 @@ import {Injectable} from '@angular/core';
 })
 export class YoutubeApiMapper {
 
-  constructor(private sanitizer: DomSanitizer) {}
+  constructor(private sanitizer: DomSanitizer) {
+  }
 
   public mapYoutubeVideoSearchResultsToModel(response: any): Array<YoutubeApiSearchResults> {
     const youtubeSearchResults: Array<YoutubeApiSearchResults> = new Array<YoutubeApiSearchResults>();
@@ -19,6 +20,21 @@ export class YoutubeApiMapper {
     });
 
     return youtubeSearchResults;
+  }
+
+  public filterYoutubeVideosBasedOnTitleAndGameDetails(youtubeVideo: YoutubeApiSearchResults, searchTerm: string): boolean {
+    // Split String in Array of Strings and remove comma from date
+    searchTerm = searchTerm.replace(',', '');
+    const searchTermTerms = searchTerm.split(' ');
+
+    let allTermesIncluded = true;
+    searchTermTerms.forEach(term => {
+      if (!youtubeVideo.videoTitle.includes(term)) {
+        allTermesIncluded = false;
+      }
+    });
+
+    return allTermesIncluded;
   }
 
   private mapVideoItemToModel(video: any): YoutubeApiSearchResults {

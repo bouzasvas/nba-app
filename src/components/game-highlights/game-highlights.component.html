@@ -1,5 +1,5 @@
 <section>
-  <div *ngIf="gameHighlights" class="container">
+  <div *ngIf="gameHighlights && gameHighlights.length !== 0" class="container">
     <div *ngFor="let video of gameHighlights" class="row my-5">
       <div class="col">
         <h4>{{video.videoTitle}}</h4>
@@ -17,10 +17,11 @@
     </div>
   </div>
 
-  <app-info-dialog
-    *ngIf="!gameHighlights"
-    [cssClass]="'alert-info'"
-    [heading]="'No Game Highlights Found'"
-    [title]="'Highlights are not available for the selected game'"
-    [message]="'You may be lucky at the next Game!'"></app-info-dialog>
+  <div *ngIf="!gameHighlights || (gameHighlights && gameHighlights.length === 0)" class="my-4">
+    <app-info-dialog
+      [cssClass]="'alert-info'"
+      [heading]="'No Game Highlights Found'"
+      [title]="'Highlights are not available for the selected game'"
+      [message]="'You may be lucky at the next Game!'"></app-info-dialog>
+  </div>
 </section>
