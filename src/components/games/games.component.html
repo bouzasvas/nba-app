@@ -39,7 +39,7 @@
       <!-- Games Data -->
       <div id="games-data" class="col">
         <ul class="list-unstyled" *ngIf="scoreboard && scoreboard.length !== 0">
-          <li *ngFor="let game of scoreboard" routerLink="/gamedetails/{{game.GameId}}"
+          <li *ngFor="let game of scoreboard" routerLink="/gamedetails/{{game.GameId}}" [queryParams]="{gameDate: this.selectedDate.getTime()}"
               class="row align-items-center justify-content-center text-center border">
             <!-- Home Team -->
             <div class="col-5 col-sm team">
