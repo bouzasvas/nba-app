@@ -38,13 +38,13 @@ export class HomeComponent implements OnInit {
   }
 
   getLeagueLeaders() {
+    this.leagueLeaders = null;
     this.loader.toggleLoader();
 
     this.leagueLeadersService
       .getLeagueLeaders(this.selectedSeason, this.selectedPlayerOrTeam, this.selectedSeasonType)
       .subscribe(res => {
         this.leagueLeaders = res;
-        console.log(this.leagueLeaders);
 
         this.loader.toggleLoader();
       });

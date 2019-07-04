@@ -1,5 +1,22 @@
+div.container h1.page-header-title {
+  font-family: 'Indie Flower', cursive;
+  font-size: 35pt;
+}
+
 div.card ul > li span.rank:after {
   content: ". ";
 }
 
-/* TODO: Home Page Cards Styles */
+div.card ul > li span.player-team-name {
+  word-break: break-word;
+}
+
+div.card ul > li span.player-team-name > span > img {
+  height: 50px;
+}
+
+div.card ul > li span.category-stat {
+  font-weight: bold;
+  float: right;
+  margin-top: 4%;
+}
