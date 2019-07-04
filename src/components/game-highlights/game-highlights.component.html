@@ -1,3 +1,26 @@
-<p>
-  game-highlights works!
-</p>
+<section>
+  <div *ngIf="gameHighlights" class="container">
+    <div *ngFor="let video of gameHighlights" class="row my-5">
+      <div class="col">
+        <h4>{{video.videoTitle}}</h4>
+        <h5>{{video.videoDescription}}</h5>
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe class="embed-responsive-item"
+                  [src]="video.videoEmbedLink"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+      <hr>
+    </div>
+  </div>
+
+  <app-info-dialog
+    *ngIf="!gameHighlights"
+    [cssClass]="'alert-info'"
+    [heading]="'No Game Highlights Found'"
+    [title]="'Highlights are not available for the selected game'"
+    [message]="'You may be lucky at the next Game!'"></app-info-dialog>
+</section>
