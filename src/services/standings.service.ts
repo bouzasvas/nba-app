@@ -5,6 +5,7 @@ import {Observable} from 'rxjs';
 import {StandingsPerTeam} from '../models/Standings/standings';
 import {map} from 'rxjs/operators';
 import {StandingsMapper} from '../models/Standings/standings-mapper';
+import {Utils} from '../common/utils';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class StandingsService {
   constructor(private http: HttpClient) { }
 
   getTodayStandings(): Observable<Array<StandingsPerTeam>> {
-    const endpoint = `${this.serviceEndpoint}?LeagueID=00&Season=2018-19&SeasonType=Regular+Season`;
+    const endpoint = `${this.serviceEndpoint}?LeagueID=00&Season=${Utils.getCurrentSeasonYear()}&SeasonType=Regular+Season`;
 
     return this.http
       .get<Array<StandingsPerTeam>>(endpoint)
