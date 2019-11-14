@@ -9,7 +9,12 @@ import {LoaderService} from '../../services/loader.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  constructor(private loader: LoaderService) {}
+  loader: LoaderService;
 
-  ngOnInit(): void {}
+  constructor(private loaderSrv: LoaderService) {
+    this.loader = loaderSrv;
+  }
+
+  ngOnInit(): void {
+  }
 }
