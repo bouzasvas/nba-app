@@ -27,12 +27,18 @@ table.points-per-qtr td {
 /* Team Stats Styles */
 .team-stats {
   font-family: 'Indie Flower', cursive;
-  font-size: 20pt;
+  font-size: 18pt;
 }
 
 .team-stats #vs {
   font-size: 35pt;
   font-weight: 600;
+}
+
+.team-stats div.team-stats-categories {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 @media screen and (max-width: 992px) {
