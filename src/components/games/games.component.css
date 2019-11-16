@@ -9,6 +9,8 @@ section > div div {
 
 mat-form-field {
   margin-top: 3%;
+  width: 50%;
+  text-align: center;
 }
 
 mat-form-field input {
