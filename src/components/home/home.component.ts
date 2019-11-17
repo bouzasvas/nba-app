@@ -5,6 +5,7 @@ import {LoaderService} from '../../services/loader.service';
 
 import * as _ from 'lodash';
 import {Title} from '@angular/platform-browser';
+import {Utils} from '../../common/utils';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +16,7 @@ export class HomeComponent implements OnInit {
 
   // From - To Year Const Fields
   private fromYear = '1996';
-  private toYear = new Date().getFullYear().toString();
+  private toYear = Utils.getCurrentYear();
 
   // Template Filters
   seasonYears: Array<string>;
@@ -54,7 +55,9 @@ export class HomeComponent implements OnInit {
   }
 
   private initTemplateFilterFields(): void {
-    this.seasonYears = this.createArrayWithYears(this.fromYear, this.toYear);
+    // Add 1 to Current year because _.range does not include endYear inclusive
+    this.toYear++;
+    this.seasonYears = this.createArrayWithYears(this.fromYear, this.toYear.toString());
 
     this.seasonTypes = new Array<string>();
     this.seasonTypes.push('Pre Season');
