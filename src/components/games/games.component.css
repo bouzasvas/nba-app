@@ -9,7 +9,7 @@ section > div div {
 
 mat-form-field {
   margin-top: 3%;
-  width: 50%;
+  width: 100%;
   text-align: center;
 }
 
@@ -27,7 +27,7 @@ mat-form-field input {
 
 #games-data .team {
   font-family: 'Indie Flower', cursive;
-  font-size: 24pt;
+  font-size: 18pt;
   margin-top: 2%;
 }
 
