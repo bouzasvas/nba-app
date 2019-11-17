@@ -29,7 +29,7 @@ export class BaseCallerService {
     return this.http.get<T>(url);
   }
 
-  private jsonpCall(url: string): Observable<any> {
-    return this.http.jsonp(url, 'callback');
+  private jsonpCall<T>(url: string): Observable<T> {
+    return this.http.jsonp<T>(url, 'callback');
   }
 }
