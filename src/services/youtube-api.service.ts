@@ -11,7 +11,7 @@ import {YoutubeApiMapper} from '../models/YoutubeApi/youtube-api-mapper';
 })
 export class YoutubeApiService {
 
-  private youtubeApiKey = 'AIzaSyBFNmuqwBdBEe88CdBj3FSNWkMV89G_-sw';
+  private youtubeApiKey = 'AIzaSyBlUik7ZD91Ko84M32GEUx-P29Hmo6eqmA';
 
   private baseYoutubeApiUrl = 'https://www.googleapis.com/youtube/v3';
   private searchOperationUrl = (searchTerm) => `/search?part=snippet&q=${searchTerm}&type=video&key=${this.youtubeApiKey}`;
