@@ -25,6 +25,7 @@ import { BoxscoreComponent } from './components/boxscore/boxscore.component';
 import { InfoDialogComponent } from './components/info-dialog/info-dialog.component';
 import { GameHighlightsComponent } from './components/game-highlights/game-highlights.component';
 import { ImageFallbackDirective } from './directives/image-fallback.directive';
+import { ErrorComponent } from './components/error/error.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { ImageFallbackDirective } from './directives/image-fallback.directive';
     BoxscoreComponent,
     InfoDialogComponent,
     GameHighlightsComponent,
-    ImageFallbackDirective
+    ImageFallbackDirective,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
