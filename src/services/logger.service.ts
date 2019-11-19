@@ -9,17 +9,17 @@ export class LoggerService {
 
   log(obj: any) {
     const msg = this.convertObjectToString(obj);
-    console.log(`LoggerService: Info, ${msg}`);
+    console.log(`LoggerService: Info: ${msg}`);
   }
 
   warn(obj: any) {
     const msg = this.convertObjectToString(obj);
-    console.warn(`LoggerService: Warn, ${msg}`);
+    console.warn(`LoggerService: Warn: ${msg}`);
   }
 
-  error(errorType = 'LoggerService: Error', obj: any) {
+  error(obj: any, errorType = 'LoggerService: Error') {
     const msg = this.convertObjectToString(obj);
-    console.error(`${errorType}, ${msg}`);
+    console.error(`${errorType}: ${msg}`);
   }
 
   private convertObjectToString(ob: any): string {

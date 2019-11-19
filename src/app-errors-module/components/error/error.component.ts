@@ -11,7 +11,7 @@ export class ErrorComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    console.log(this.activatedRoute.snapshot.params);
+    console.log(this.activatedRoute.snapshot.queryParams);
   }
 
 }
