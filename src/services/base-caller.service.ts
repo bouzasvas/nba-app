@@ -2,8 +2,6 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 
-import {environment} from '../environments/environment';
-
 @Injectable({
   providedIn: 'root'
 })
@@ -15,12 +13,10 @@ export class BaseCallerService {
   apiCall<T>(url: string): Observable<T> {
     let observableResponse: Observable<T>;
 
-    const prod = environment.production;
-    if (prod) {
-      observableResponse = this.jsonpCall(url);
-    } else {
-      observableResponse = this.httpCall<T>(url);
-    }
+    // Used JSONP calls before server
+    // observableResponse = this.jsonpCall(url);
+    observableResponse = this.httpCall<T>(url);
+
 
     return observableResponse;
   }
