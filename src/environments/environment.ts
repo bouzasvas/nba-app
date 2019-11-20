@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiUrl: '/stats'
+  apiUrl: 'http://localhost:8080/nba-api/stats',
+  youtubeApiKey: null
 };
 
 /*
