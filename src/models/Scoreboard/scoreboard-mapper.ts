@@ -4,6 +4,10 @@ import {IdTeamEnum} from '../Team/id-team-enum.enum';
 
 // Lodash
 import * as _ from 'lodash';
+
+// Utils Library
+import {Utils} from '../../common/utils';
+
 import {CommonMapperFns} from '../../common/common-mapper-fns';
 
 export class ScoreboardMapper {
@@ -23,7 +27,7 @@ export class ScoreboardMapper {
 
       scoreboard.GameSeq = gameScoreboardNative[1];
       scoreboard.GameId = gameScoreboardNative[2];
-      scoreboard.GameStatus = gameScoreboardNative[4];
+      scoreboard.GameStatus = Utils.convertToCurrentTimezone(gameScoreboardNative[4]);
       scoreboard.HomeTeam = homeTeam;
       scoreboard.AwayTeam = awayTeam;
       scoreboard.ArenaName = gameScoreboardNative[15];

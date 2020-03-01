@@ -1,3 +1,6 @@
+// Moment Timezone
+import * as moment_tz from 'moment-timezone';
+
 export class Utils {
 
   public static getCurrentSeasonYear(): string {
@@ -20,5 +23,23 @@ export class Utils {
     }
 
     return currentYear;
+  }
+
+  public static convertToCurrentTimezone(dateStr: string): string {
+    // Default API Timezone
+    const defaultTimezone = 'EST';
+
+    const gameIsLive = !dateStr.includes('ET');
+    // If Game is Live Return Game Status Instead
+    if (gameIsLive) {
+      return dateStr;
+    }
+
+    // Set-Get Local Timezone
+    moment_tz.tz.setDefault();
+    const localTimezone = moment_tz.tz.guess();
+    const defaultTimezoneMoment = moment_tz.tz(dateStr, 'h:mm A', defaultTimezone);
+
+    return defaultTimezoneMoment.tz(localTimezone).format('HH:mm');
   }
 }
